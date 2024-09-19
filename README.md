@@ -19,7 +19,7 @@ dmath library itself provides cross-platform implementations for major math func
 
 ## WARNING: strict proofs are plain IMPOSSIBLE in this field
 While ALL our implementations pass ALL our tests (if applicable, under restrictions listed above), it is next to impossible to provide any strict guarantees. 
-- ❗**IF YOU RUN INTO A DISCREPANCY AND CAN PROVIDE A REPRO - PLEASE PLEASE PLEASE DO** 
+- ❗**IF YOU RUN INTO A DISCREPANCY AND CAN PROVIDE A REPRO - PLEASE PLEASE PLEASE DO IT** :pray: :pray: :pray:❗
 
 ## WARNING: APIs are SUBJECT TO CHANGE WITHOUT NOTICE
 We are currently at version 0.0.1, and we will NOT commit to APIs being stable at least until v0.1.0... 
@@ -37,15 +37,15 @@ sixit/dmath is a HEADER-ONLY LIB, no build is really necessary.
 
 ## Plans for v0.0.2
 - code cleanup
+- providing `double` versions - and fixing technical debt non-deterministic issue for exp() function
+- making fp_traits::is_deterministic to return enum {guaranteed|assumed|tested-ok|to-be-tested|tested-failed|non-deterministic} and provide fp_traits::test_is_deterministic where applicable (at least LTO and contract flags _seem_ to be detectable). 
 - moving exhaustive-range-testing helpers from core
-- MAYBE: adding support for WASM32 
+- MAYBE: adding support for WASM32
 
 ## WIP and Future plans
 WIP:
+- supporting `double` (C++ `double` +6 deterministic versions of sixit::dmath::ieee_double_*, similar to ieee_float_* ones).
 - providing sophisticated fixed-point-with-fallback (very useful for geometry)
 - providing simd_float, allowing for things such as simultaneous calculation of sin(x) for 32 different values of x in parallel.
    + this generalizes into running ANY algorithm (for example, ANY algorithm from sixit/geometry) using SIMD parallelism. 
    + we'll be utilizing whatever-is-found-on-current-CPU (all the way up to AVX-512-FP16) - in the future, with runtime auto-detection at exe level.
-
-Planned:
-- providing
