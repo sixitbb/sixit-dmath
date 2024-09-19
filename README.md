@@ -1,5 +1,5 @@
 # sixit-dmath
-sixit/dmath is a cross-platform deterministic math lib (as seen on TV presented on CppCon24)
+sixit/dmath is a cross-platform deterministic math lib (as ~~seen on TV~~ presented on CppCon24)
 
 ## WARNING: APIs are SUBJECT TO CHANGE WITHOUT NOTICE
 We are currently at version 0.0.1, and we will NOT commit to APIs being stable at least until v0.1.0... 
