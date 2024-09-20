@@ -38,7 +38,7 @@ sixit/dmath is a HEADER-ONLY LIB, no build is really necessary.
 ## Plans for v0.0.2
 - code cleanup
 - providing `double` versions - and fixing technical debt non-deterministic issue for exp() function
-- making fp_traits::is_deterministic to return enum {guaranteed|assumed|tested-ok|to-be-tested|tested-failed|non-deterministic} and provide fp_traits::test_is_deterministic where applicable (at least LTO and contract flags _seem_ to be detectable). 
+- making `fp_traits<fp>::is_deterministic()` to return enum {guaranteed|assumed|tested-ok|to-be-tested|tested-failed|non-deterministic} and provide fp_traits::test_is_deterministic where applicable (at least LTO and contract flags _seem_ to be detectable). 
 - moving exhaustive-range-testing helpers from core
 - MAYBE: adding support for WASM32
 
