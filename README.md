@@ -6,13 +6,13 @@ The idea is to provide a library which (to the best of our knowledge) allows for
 
 dmath library itself provides cross-platform implementations for major math functions (we're using a templatized version of well-known [MUSL library](https://www.musl-libc.org)). Currently, it takes one of the following classes as template parameter:
 - `float` (yes, just usual C++ `float`) - in this case behavior is❗**NOT DETERMINISTIC**❗(in other words - with float as a template parameter, dmath becomes just a yet another math lib; it is still useful for libs such as sixit/geometry which are templatized on the same set of types).
-- `sixit::dmath::ieee_float_inline_asm` - so far it seems our best bet. DOES NOT rely on compiler flags (as far as we know). Average Performance is roughly ?x of that of float.
+- `sixit::dmath::ieee_float_inline_asm` - so far it seems our best bet. DOES NOT rely on compiler flags (as far as we know). Average Performance is roughly 0.75-0.90 of that of float.
    - As MSVC doesn't support inline asm, we're using intrinsics there instead; however, intrinsic-based implementation looks a bit more shaky (we had to resort to some trickery to prevent compiler from optimizing intrinsics and breaking determinism). 
-- `sixit::dmath::ieee_float_if_semicolon_is_respected` - relies on "sequencing" clause in the C++ standard to ensure deterministic behavior. Average Performance is roughly ?x of that of float. ❗**to use it, you MUST disable non-conformant flags such as fast-math or contract=fast for YOUR WHOLE PROJECT** ❗(specific flags TBD)
-- `sixit::dmath::ieee_float_if_strict` - relies on "strict" floating-point behavior Average Performance is roughly ?x of that of float. ❗**to use it, you MUST enforce "strict fp" compiler flags for YOUR WHOLE PROJECT** ❗(specific flags TBD)
-- `sixit::dmath::ieee_float_static_lib` - using static lib (actually, standalone .cpp file) to ensure determinism. Average Performance is roughly ?x of that of float. ❗**to use it, you MUST disable LTO** ❗(specific flags TBD)
-- `sixit::dmath::ieee_float_shared_lib` - using shared lib to ensure determinism. Average Performance is roughly ?x of that of float. NOT supported for WASM32. 
-- `sixit::dmath::ieee_float_soft` - "soft float" implementation based on an excellent [Berleley Soft Float](https://github.com/ucb-bar/berkeley-softfloat-3) lib . Unconditionally and unequvocally DETERMINISTIC, and works EVERYWHERE, but is pretty slow. Average Performance is roughly ?x of that of float.
+- `sixit::dmath::ieee_float_if_semicolon_is_respected` - relies on "sequencing" clause in the C++ standard to ensure deterministic behavior. Average Performance is roughly 0.4-0.9 of that of float. ❗**to use it, you MUST disable non-conformant flags such as fast-math or contract=fast for YOUR WHOLE PROJECT** ❗(specific flags TBD)
+- `sixit::dmath::ieee_float_if_strict` - relies on "strict" floating-point behavior Average Performance is roughly 0.4-0.9 of that of float. ❗**to use it, you MUST enforce "strict fp" compiler flags for YOUR WHOLE PROJECT** ❗(specific flags TBD)
+- `sixit::dmath::ieee_float_static_lib` - using static lib (actually, standalone .cpp file) to ensure determinism. Average Performance is roughly 0.33-0.65 of that of float. ❗**to use it, you MUST disable LTO** ❗(specific flags TBD)
+- `sixit::dmath::ieee_float_shared_lib` - using shared lib to ensure determinism. Average Performance is roughly 0.33-0.55 of that of float. NOT supported for WASM32. 
+- `sixit::dmath::ieee_float_soft` - "soft float" implementation based on an excellent [Berleley Soft Float](https://github.com/ucb-bar/berkeley-softfloat-3) lib . Unconditionally and unequvocally DETERMINISTIC, and works EVERYWHERE, but is pretty slow. Average Performance is roughly 0.17-0.25 of that of float.
    + _NB: we were forced to incorporate it, as we're planning to provide constexpr versions for the functions_
 
 <sup>(1)</sup> - except maybe when dealing with NaNs
