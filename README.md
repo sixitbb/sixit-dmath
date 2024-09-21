@@ -68,7 +68,7 @@ sixit/dmath is a HEADER-ONLY LIB, no build is really necessary.
 - providing `double` versions - and fixing technical debt non-deterministic issue for exp() function
 - making `fp_traits<fp>::is_deterministic()` to return enum {guaranteed|assumed|tested-ok|to-be-tested|tested-failed|non-deterministic} and provide fp_traits::test_is_deterministic where applicable (at least LTO and contract flags _seem_ to be detectable).
 - making working/usable deterministic strtod
-- cleaning up softfloat: at least changing to C++-standard thread_local, moving under dmath/fp folder, removing pointers-to-functions-to-remove-inline, removing everything but 32- and 64-bits (in particular, removing everything 16-, 80-, and 128-bit), making everything constexpr, 
+- cleaning up softfloat: at least changing to C++-standard thread_local, moving under dmath/fp folder, removing pointers-to-functions-to-remove-inline, removing everything but 32- and 64-bits (in particular, removing everything 16-, 80-, and 128-bit), making everything constexpr, moving as much as possible to the namespace (incl. replacing #defines with constexpr int's).
 - moving exhaustive-range-testing helpers from core
 - MAYBE: adding support for WASM32 (in particular, for softfloat: sorting out current WASM32->x86 (?))
 
