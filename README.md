@@ -41,7 +41,7 @@ sixit/dmath is a HEADER-ONLY LIB, no build is really necessary.
 ### Correctness
 
 || float, max flags | float, no-fast-math flags | float, strict-fp flags | All ieee_float_* classes, sum across 3 different sets of optimization flags |
-| --- | --- | --- | --- | --- | 
+|:---|:---:|:---:|:---:|:---:| 
 | GCC/x64 | 17/163 | 16/163 | 14/163 | 0/489 |
 | MSVC/x64 | 17/163 | 17/163 | 14/163 | 0/489 |
 | Apple Clang/ARM64 | 23/163 | 23/163 | 14/163 | 0/489 |
@@ -51,13 +51,14 @@ sixit/dmath is a HEADER-ONLY LIB, no build is really necessary.
 
 ### Performance 
 || ieee_float _soft | ieee_float _shared_lib | ieee_float _static_lib | ieee_float _inline_asm |ieee_float _if_strict_fp | ieee_float _if_semicolon |
-| --- | --- | --- | --- | --- | --- | --- | 
-| GCC/x64 | 6.03x | 3.67x | 2.62x | 1.19x | 1.44x | 1.40x |
-| MSVC/x64 | 4.83x | 1.89x | 1.87x | 1.33x | 2.20x | 1.31x |
-| Apple-Clang/ARM64 | 5.54x | 2.43x | 3.09x | 1.32x | 2.47x | 2.39x |
-| GCC/RISC-V | 3.97x | 3.07x | 1.55x | 1.10x | 1.09x | 1.10x |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:| 
+| GCC/x64 | 6.03x | 3.67x | 2.62x | **1.19x** | 1.44x | 1.40x |
+| MSVC/x64 | 4.83x | 1.89x | 1.87x | 1.33x | 2.20x | **1.31x** |
+| Apple-Clang/ARM64 | 5.54x | 2.43x | 3.09x | **1.32x** | 2.47x | 2.39x |
+| GCC/RISC-V | 3.97x | 3.07x | 1.55x | 1.10x | **1.09x** | 1.10x |
+| Process-wide Deoptimizations | -- | -- | No LTO | -- | No fast-math, no reordering, no FMA | No fast-math, no fp-contract:fast | 
 
-*Legend: Normalized to built-in float, geometric mean over tests*
+*Legend: Execution times, normalized to built-in float on respective platform, geometric mean over tests*
 
 ## Plans for v0.0.2
 - code cleanup, including:
