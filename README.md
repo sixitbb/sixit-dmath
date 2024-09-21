@@ -1,6 +1,8 @@
 # sixit-dmath
 sixit/dmath is a cross-platform deterministic math lib (as ~~seen on TV~~ presented on CppCon24)
 
+**[Slides from Sherry's talk on CppCon24 on Sep 20](https://github.com/sixitbb/.github/blob/main/profile/FP%20Determinism.pdf)**
+
 ## The Big Idea
 The idea is to provide a library which (to the best of our knowledge) allows for fully<sup>(1)</sup> deterministic floating-point calculations across all our supported platforms (currently: 4 CPU architectures, 3 compilers, and 6 OS's). TBD: add link to CppCon presentation as soon as it is out. 
 
