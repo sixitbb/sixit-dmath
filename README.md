@@ -14,7 +14,7 @@ dmath library itself provides cross-platform implementations for major math func
 - `sixit::dmath::ieee_float_if_strict` - relies on "strict" floating-point behavior Average Performance is roughly 0.4-0.9 of that of float. ❗**to use it, you MUST enforce "strict fp" compiler flags for YOUR WHOLE PROJECT** ❗(specific flags TBD)
 - `sixit::dmath::ieee_float_static_lib` - using static lib (actually, standalone .cpp file) to ensure determinism. Average Performance is roughly 0.33-0.65 of that of float. ❗**to use it, you MUST disable LTO** ❗(specific flags TBD)
 - `sixit::dmath::ieee_float_shared_lib` - using shared lib to ensure determinism. Average Performance is roughly 0.33-0.55 of that of float. NOT supported for WASM32. 
-- `sixit::dmath::ieee_float_soft` - "soft float" implementation based on an excellent [Berleley Soft Float](https://github.com/ucb-bar/berkeley-softfloat-3) lib . Unconditionally and unequvocally DETERMINISTIC, and works EVERYWHERE, but is pretty slow. Average Performance is roughly 0.17-0.25 of that of float.
+- `sixit::dmath::ieee_float_soft` - "soft float" implementation based on an excellent [Berkeley Soft Float](https://github.com/ucb-bar/berkeley-softfloat-3) lib . Unconditionally and unequvocally DETERMINISTIC, and works EVERYWHERE, but is pretty slow. Average Performance is roughly 0.17-0.25 of that of float.
    + _NB: we were forced to incorporate it, as we're planning to provide constexpr versions for the functions_
 
 <sup>(1)</sup> - except maybe when dealing with NaNs
