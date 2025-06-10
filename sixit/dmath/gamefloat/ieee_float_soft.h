@@ -105,6 +105,26 @@ class ieee_float_soft
         return sixit::dmath::softfloat::f32_div(data, other.data);
     }
 
+    ieee_float_soft& operator+=(ieee_float_soft other)
+    {
+        return *this = sixit::dmath::softfloat::f32_add(data, other.data);
+    }
+
+    ieee_float_soft& operator-=(ieee_float_soft other)
+    {
+        return *this = sixit::dmath::softfloat::f32_sub(data, other.data);
+    }
+
+    ieee_float_soft& operator*=(ieee_float_soft other)
+    {
+        return *this = sixit::dmath::softfloat::f32_mul(data, other.data);
+    }
+
+    ieee_float_soft& operator/=(ieee_float_soft other)
+    {
+        return *this = sixit::dmath::softfloat::f32_div(data, other.data);
+    }
+
     bool operator<(ieee_float_soft other) const
     {
         return sixit::dmath::softfloat::f32_lt(data, other.data);

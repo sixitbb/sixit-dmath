@@ -107,6 +107,26 @@ class ieee_float_inline_asm
         return sixit::cpual::ieee_divide_float(data, other.data);
     }
 
+    ieee_float_inline_asm& operator+=(ieee_float_inline_asm other)
+    {
+        return *this = sixit::cpual::ieee_add_float(data, other.data);
+    }
+
+    ieee_float_inline_asm& operator-=(ieee_float_inline_asm other)
+    {
+        return *this = sixit::cpual::ieee_subtract_float(data, other.data);
+    }
+
+    ieee_float_inline_asm& operator*=(ieee_float_inline_asm other)
+    {
+        return *this = sixit::cpual::ieee_multiply_float(data, other.data);
+    }
+
+    ieee_float_inline_asm& operator/=(ieee_float_inline_asm other)
+    {
+        return *this = sixit::cpual::ieee_divide_float(data, other.data);
+    }
+
     bool operator<(ieee_float_inline_asm other) const
     {
         return sixit::cpual::ieee_cmp_lt_float(data, other.data);

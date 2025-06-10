@@ -84,6 +84,38 @@ class ieee_float_if_semicolon_prohibits_reordering
         return ret;
     }
 
+    ieee_float_if_semicolon_prohibits_reordering& operator+=(ieee_float_if_semicolon_prohibits_reordering other)
+    {
+        float ret = data + other.data;
+        // !!! temporary variable and the semicolon is substantional here for invoking sequencing rule. Do not even think about merging in a single line !!!
+        data = ret;
+        return *this;
+    }
+
+    ieee_float_if_semicolon_prohibits_reordering& operator-=(ieee_float_if_semicolon_prohibits_reordering other)
+    {
+        float ret = data - other.data;
+        // !!! temporary variable and the semicolon is substantional here for invoking sequencing rule. Do not even think about merging in a single line !!!
+        data = ret;
+        return *this;
+    }
+
+    ieee_float_if_semicolon_prohibits_reordering& operator*=(ieee_float_if_semicolon_prohibits_reordering other)
+    {
+        float ret = data * other.data;
+        // !!! temporary variable and the semicolon is substantional here for invoking sequencing rule. Do not even think about merging in a single line !!!
+        data = ret;
+        return *this;
+    }
+
+    ieee_float_if_semicolon_prohibits_reordering& operator/=(ieee_float_if_semicolon_prohibits_reordering other)
+    {
+        float ret = data / other.data;
+        // !!! temporary variable and the semicolon is substantional here for invoking sequencing rule. Do not even think about merging in a single line !!!
+        data = ret;
+        return *this;
+    }
+
     ieee_float_if_semicolon_prohibits_reordering& operator=(const ieee_float_if_semicolon_prohibits_reordering& other) noexcept = default;
     ieee_float_if_semicolon_prohibits_reordering& operator=(ieee_float_if_semicolon_prohibits_reordering&& other) noexcept = default;
 

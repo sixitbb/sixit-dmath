@@ -123,6 +123,26 @@ class ieee_float_static_lib
         return ieee_float_static_lib_detail::divide(data, other.data);
     }
 
+    ieee_float_static_lib& operator+=(ieee_float_static_lib other)
+    {
+        return *this = ieee_float_static_lib_detail::add(data, other.data);
+    }
+
+    ieee_float_static_lib& operator-=(ieee_float_static_lib other)
+    {
+        return *this = ieee_float_static_lib_detail::subtract(data, other.data);
+    }
+
+    ieee_float_static_lib& operator*=(ieee_float_static_lib other)
+    {
+        return *this = ieee_float_static_lib_detail::multiply(data, other.data);
+    }
+
+    ieee_float_static_lib& operator/=(ieee_float_static_lib other)
+    {
+        return *this = ieee_float_static_lib_detail::divide(data, other.data);
+    }
+
     bool operator<(const ieee_float_static_lib& other) const
     {
         return ieee_float_static_lib_detail::compare_lt(data, other.data);

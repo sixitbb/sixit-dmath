@@ -76,6 +76,26 @@ class ieee_float_if_strict_fp
         return data / other.data;
     }
 
+    ieee_float_if_strict_fp& operator+=(ieee_float_if_strict_fp other)
+    {
+        return *this = data + other.data;
+    }
+
+    ieee_float_if_strict_fp& operator-=(ieee_float_if_strict_fp other)
+    {
+        return *this = data - other.data;
+    }
+
+    ieee_float_if_strict_fp& operator*=(ieee_float_if_strict_fp other)
+    {
+        return *this = data * other.data;
+    }
+
+    ieee_float_if_strict_fp& operator/=(ieee_float_if_strict_fp other)
+    {
+        return *this = data / other.data;
+    }
+
     ieee_float_if_strict_fp& operator=(const ieee_float_if_strict_fp& other) noexcept = default;
     ieee_float_if_strict_fp& operator=(ieee_float_if_strict_fp&& other) noexcept = default;
 
