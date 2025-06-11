@@ -19,6 +19,10 @@ Contributors: Sherry Ignatchenko, Serhii Iliukhin
 #ifndef sixit_dmath_math_operations_log10_h_included
 #define sixit_dmath_math_operations_log10_h_included
 
+#include <sixit/dmath/traits.h>
+
+#include <cmath>
+
 namespace sixit::dmath::mathf
 {
     template <typename fp>

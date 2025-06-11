@@ -16,6 +16,7 @@ Contributors: Sherry Ignatchenko, Serhii Iliukhin
 #ifndef sixit_dmath_math_operations_acos_h_included
 #define sixit_dmath_math_operations_acos_h_included
 
+#include "sqrt.h"
 #include "__utils.h"
 
 namespace sixit::dmath::mathf

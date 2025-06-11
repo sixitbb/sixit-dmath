@@ -129,7 +129,10 @@ Contributors: Sherry Ignatchenko, Serhii Iliukhin
 #ifndef sixit_dmath_math_operations___rem_pio2_large_h_included
 #define sixit_dmath_math_operations___rem_pio2_large_h_included
 
+#include "floor.h"
 #include "__utils.h"
+
+#include <cassert>
 
 namespace sixit::dmath::mathf
 {

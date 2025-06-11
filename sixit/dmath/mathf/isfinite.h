@@ -6,6 +6,8 @@ Contributors: Sherry Ignatchenko, Serhii Iliukhin
 #ifndef sixit_dmath_math_operations_isfinite_h_included
 #define sixit_dmath_math_operations_isfinite_h_included
 
+#include <sixit/dmath/traits.h>
+
 namespace sixit::dmath::mathf
 {
     template <typename fp>
